@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Princess 💖</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <h1 id="question">Baby, do you like me?</h1>
+    <div class="button-group">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+    <p id="extraMsg" class="hidden">Think again 💭</p>
+  </div>
+
+  <div id="loveSection" class="hidden fade-in">
+    <h1>How much do you love me?</h1>
+    <input type="range" min="1" max="100" value="1" id="loveSlider" />
+    <p id="loveValue">1 / 100</p>
+    <div id="heart">🖤</div>
+    <div id="secretMsg" class="hidden">
+      💌 I love you and thanks for choosing me.<br />
+      I'm the most jealous, possessive, protective, loving, romantic, caring
+      and perfect man you'll ever see.<br />
+      I'm here to live with you forever — not by words, but by my actions.<br />
+      Stay with me…<br />
+      ✨ Biyer pore roj akta kore khat bhangbo 😉
+    </div>
+  </div>
+
+  <div class="shayari hidden fade-in">
+    <p>
+      Gulzaar ne bulava,<br />
+      Kuch tere te likhava,<br />
+      Jaun ki kitaab se,<br />
+      Kuch panne tere liye churawa.<br /><br />
+
+      Itna haseen tu, ki Devraj ko chalna pare chal pe maya-jal,<br />
+      Itna noor tujh mein, ke sitaare bhi ho jaayein behaal<br />
+      Tere awaaz ki baat hui, devo ki mehfil mein,<br />
+      Sabne bola – "Ayee hayee! Meri jaan Yeh dil toh ho gaya pagal tere
+      naal…."<br /><br />
+
+      Tere husn da chaal,<br />
+      Tere hothon pe girte baal,<br />
+      Tere kamar ka kamaal,<br />
+      Teri aankhon ne kiya mera bura haal.<br /><br />
+
+      Tere ishq da maara,<br />
+      Tere yaadon mein kitne raatein tanhai mein guzaara<br />
+      Tu bata, kaunsa kala jadu karu tujhpe yaara,<br />
+      Tu ban jaaye meri, aur main ho jaaun tumhara.<br /><br />
+
+      Na tujhpe ane du kisi aur ka chhaaya,<br />
+      Chhupa ke rakh lu mere dil mein tujhe, Saiyaara.<br /><br />
+
+      Mere labon ki hansi ka raaz ho tum,<br />
+      Mere jeene ka ek naya ehsaas ho tum.<br /><br />
+
+      Tujhe yuhi thodi kho sakta hoon, meri Maana,<br />
+      Tujhko khona mere liye asaan nahi, meri Jaana<br />
+      Tujhe Rab ne banaya sirf mere liye, O meri Jaana.<br />
+      Rab ka taufa aise thodi thukraunga meri jane jana<br />
+      Jaanu, tere har lafz da shikva rehta hai is dil mein,<br />
+      Tujhe na dekhu, to yeh dil bechain sa kyun rehta hai, meri Jaana.<br /><br />
+
+      Maloom nahi, isey hi kya mohabbat kehte hain...<br />
+      Bas itna jaanta hoon, mere Jaana —<br />
+      Tujhmein mujhe mera Rab aur poora jahaan dikhta hai...<br /><br />
+
+      Is dil ko... aur baaki sab,<br />
+      Paraya lagta hai.
+    </p>
+    <div class="insta">
+      <p>
+        Mention me on your bio:
+        <a href="https://instagram.com/s4dx_._" target="_blank">@s4dx_._</a> |
+        <a href="https://instagram.com/s4dx_._pvt" target="_blank">@s4dx_._pvt</a>
+        Take a ss and send me..
+      </p>
+    </div>
+  </div>
+  <script src="static/js/script.js"></script>
+</body>
+</html>
+<script>
+  const question = document.getElementById("question");
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const extraMsg = document.getElementById("extraMsg");
+  const loveSection = document.getElementById("loveSection");
+  const loveSlider = document.getElementById("loveSlider");
+  const loveValue = document.getElementById("loveValue");
+  const heart = document.getElementById("heart");
+  const secretMsg = document.getElementById("secretMsg");
+
+  yesBtn.addEventListener("click", () => {
+    question.classList.add("hidden");
+    yesBtn.classList.add("hidden");
+    noBtn.classList.add("hidden");
+    extraMsg.classList.remove("hidden");
+    setTimeout(() => {
+      extraMsg.classList.add("hidden");
+      loveSection.classList.remove("hidden");
+    }, 2000);
+  });
+
+  noBtn.addEventListener("click", () => {
+    question.textContent = "Think again 💭";
+    question.style.color = "#ff0000";
+    setTimeout(() => {
+      question.textContent = "Baby, do you like me?";
+      question.style.color = "#fff";
+    }, 2000);
+  });
+
+  loveSlider.addEventListener("input", () => {
+    loveValue.textContent = `${loveSlider.value} / 100`;
+    heart.textContent = "❤️".repeat(Math.floor(loveSlider.value / 20));
+    if (loveSlider.value >= 80) {
+      heart.classList.add("glow-heart");
+      secretMsg.classList.remove("hidden");
+    } else {
+      heart.classList.remove("glow-heart");
+      secretMsg.classList.add("hidden");
+    }
+  });
+
